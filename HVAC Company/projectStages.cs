@@ -6,16 +6,23 @@ using System.Threading.Tasks;
 
 namespace HVAC_Company
 {
-    // ABSTRACT CLASS
+    /// <summary>
+    /// ABSTRACT CLASS
+    /// </summary>
     public abstract class ProjectStage
     {
         public abstract double ConfirmCompletion();
 
     }
-    // MAIN CLASS THAT CALCULATES THE PROJECT COMPLETION PERCENTAGE
+    
+    /// 
+    /// MAIN CLASS THAT CALCULATES THE PROJECT COMPLETION PERCENTAGE
+    /// 
     internal class ProjectCompletionRate
     {
-        //Main Method that calculates the various stages percentage completion rate.
+        ///
+        /// Main Method that calculates the various stages percentage completion rate.
+        ///
         double TotalCustomerBalance(List<ProjectStage> project)
         {
             double rate = 0;
@@ -34,7 +41,11 @@ namespace HVAC_Company
             return rate;
         }
     }
-    // DURING THE INITIATION STAGE THE PROJECT MANAGER ENSURES REGULAR COMMUNICATION WITH THE CLIENT AND ALSO QUOTES AND BID FOR THE PROJECT
+    /// 
+    /// DURING THE INITIATION STAGE THE PROJECT MANAGER ENSURES REGULAR COMMUNICATION WITH THE CLIENT AND ALSO QUOTES AND BID FOR THE PROJECT
+    /// 
+    /// this class inherits projectStage
+
     class Initiation : ProjectStage
     {
         // 
@@ -53,22 +64,31 @@ namespace HVAC_Company
             return 0;
         }
     }
-    // THE PLANNING STAGE, THE ENGINEERS VISITS THE SITE TO ACCESS THE SPACE AND ALSO DO SOME DESIGN ON HOW CARRY OUT THE PROJECT
+    /// <summary>
+    /// THE PLANNING STAGE, THE ENGINEERS VISITS THE SITE TO ACCESS THE SPACE AND ALSO DO SOME DESIGN ON HOW CARRY OUT THE PROJECT
+    /// </summary>
     class Planning : ProjectStage
     {
-        //  properties of the planning stage
+         /// 
+        /// properties of the planning stage
+        ///  
         public string? problemDefinition { get; set; }
         public string? StakeholdersIdentification { get; set; }
         public string? Design { get; set; }
         public string? MarketSurvey { get; set; }
-        // planning method 1
+
+        /// <summary>
+        /// Budgetting method implementing Budgetting class
+        /// </summary>
         void Budgetting()
         {
             var budget = new Budgetting();
             budget.budgetDev();
             
         }
-        //planning method 2
+        /// <summary>
+        /// Sites visitation implementing Communication class.
+        /// </summary>
         void SiteVisitation()
         {
             Communications siteVisit = new Communications();
@@ -82,10 +102,14 @@ namespace HVAC_Company
         }
 
     }
-    // THE EXECUTION STAGE WHERE THE PROJECT INSTALLATION BEGINS AND EXECUTION OF THE DESIGN BY FOLLOWING AN OUTLINED GANTTCHART
+    /// <summary>
+    /// THE EXECUTION STAGE WHERE THE PROJECT INSTALLATION BEGINS AND EXECUTION OF THE DESIGN BY FOLLOWING AN OUTLINED GANTTCHART
+    /// </summary>
     class Execution : ProjectStage
     {
-        //properties of the execution stage
+        /// <summary>
+        /// properties of the execution stage
+        /// </summary>
         public string? TeamAss { get; set; }
         public string? DraftGanttChart { get; set; } 
         public string? LogisticsMove { get; set; }
@@ -106,10 +130,14 @@ namespace HVAC_Company
         }
 
     }
-    // THE MONITORING AND CONTROL STAGE IS WHERE THE PROJECT IS BEING COMPLETED AND HANDEDOVER TO THE CLIENTS
+    /// <summary>
+    /// THE MONITORING AND CONTROL STAGE IS WHERE THE PROJECT IS BEING COMPLETED AND HANDEDOVER TO THE CLIENTS
+    /// </summary>
     class MonitoringAndControl : ProjectStage   
     {
-        //properties of the monitoring and control stage
+        /// <summary>
+        /// properties of the monitoring and control stage
+        /// </summary>
         public string ReportProgress { get; set; } = string.Empty;
         public double EvaluationRate { get; set; }
         public string HandleRisingProblem { get; set; } = string.Empty;
@@ -125,7 +153,9 @@ namespace HVAC_Company
         }
 
     }
-    // THE COMMUNICATIONS CLASS THAT HANDLES SENDING NOTIFICATIONS TO BOTH CLIENTS AND STAFFS
+    /// <summary>
+    /// THE COMMUNICATIONS CLASS THAT HANDLES SENDING NOTIFICATIONS TO BOTH CLIENTS AND STAFFS
+    /// </summary>
     public class Communications
     {
         public string sendMails()
@@ -137,7 +167,9 @@ namespace HVAC_Company
             return "Meeting scheduled";
         }
     }
-    // THE BUDGETTING CLASS THAT HANDLES BUDGETTING RELATED ISSUES LIKE CREATING ONE AND ENSURING THE BUDGET IS BEING ADHERED TO.
+    /// <summary>
+    /// THE BUDGETTING CLASS THAT HANDLES BUDGETTING RELATED ISSUES LIKE CREATING ONE AND ENSURING THE BUDGET IS BEING ADHERED TO.
+    /// </summary>
     public class Budgetting
     {
         public int budgetDev()
